@@ -29,47 +29,37 @@ Auth::routes();
 // Route::get('/admin/laporan_recycle_f', [App\Http\Controllers\LaporanController::class, 'showLapRecycleF'])->name('admin.laporan_recycle_f');
 // Route::get('/admin/laporan_recycle_s', [App\Http\Controllers\LaporanController::class, 'showLapRecycleS'])->name('admin.laporan_recycle_s');
 
-Route::get('/admin/index', [App\Http\Controllers\LaporanController::class, 'index'])->name('admin.index');
+// Admin
+Route::get('/admin/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('admin.show');
+Route::get('/admin/dashboard', [App\Http\Controllers\PenggunaController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin/list-pengguna', [App\Http\Controllers\PenggunaController::class, 'index'])->name('pengguna.index');
+Route::get('/admin/create-pengguna', [App\Http\Controllers\PenggunaController::class, 'create'])->name('pengguna.create');
+// Pengguna
+Route::post('/pengguna/store', [App\Http\Controllers\PenggunaController::class, 'store'])->name('pengguna.store');
+Route::get('/pengguna/{pengguna}/edit', [App\Http\Controllers\PenggunaController::class, 'edit'])->name('pengguna.edit');
+Route::match(['put', 'patch'],'/pengguna/{id}', [App\Http\Controllers\PenggunaController::class, 'update'])->name('pengguna.update');
+Route::post('/pengguna/{id}', [App\Http\Controllers\PenggunaController::class, 'destroy'])->name('pengguna.destroy');
+Route::get('/pengguna/{pengguna}', [App\Http\Controllers\PenggunaController::class, 'show'])->name('pengguna.show');
+//anggota
+Route::get('/anggota/index', [App\Http\Controllers\AnggotaController::class, 'index'])->name('anggota.index');
+Route::get('/anggota/create', [App\Http\Controllers\AnggotaController::class, 'create'])->name('anggota.create');
+Route::post('/anggota/store', [App\Http\Controllers\AnggotaController::class, 'store'])->name('anggota.store');
+Route::get('/anggota/{anggota}/edit', [App\Http\Controllers\AnggotaController::class, 'edit'])->name('anggota.edit');
+Route::match(['put', 'patch'],'/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'update'])->name('anggota.update');
+Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy'])->name('anggota.destroy');
+Route::get('/anggota/{anggota}', [App\Http\Controllers\AnggotaController::class, 'show'])->name('anggota.show');
+//barang
+Route::get('/barang/index', [App\Http\Controllers\BarangController::class, 'index'])->name('barang.index');
+Route::get('/barang/create', [App\Http\Controllers\BarangController::class, 'create'])->name('barang.create');
+Route::post('/barang/store', [App\Http\Controllers\BarangController::class, 'store'])->name('barang.store');
+Route::get('/barang/{barang}/edit', [App\Http\Controllers\BarangController::class, 'edit'])->name('barang.edit');
+Route::match(['put', 'patch'],'/barang/{id}', [App\Http\Controllers\BarangController::class, 'update'])->name('barang.update');
+Route::post('/barang/{id}', [App\Http\Controllers\BarangController::class, 'destroy'])->name('barang.destroy');
+Route::get('/barang/{barang}', [App\Http\Controllers\BarangController::class, 'show'])->name('barang.show');
 
-Route::get('/dashboard', function(){
-    return view('layouts.template');
-});
 
-Route::get('/crud/create', function(){
-    return view('crud.create');
-});
+Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('/crud/index', function (){
-    return view('crud.index');
-});
 
-Route::get('/admin/create', function(){
-    return view('admin.create');
-});
-
-Route::get('/admin/index', function (){
-    return view('admin.index');
-});
-
-Route::get('/admin/dashboard', function (){
-    return view('admin.dashboard');
-});
-
-Route::get('/admin/edit', function (){
-    return view('admin.edit');
-});
-
-Route::get('/admin/show', function (){
-    return view('admin.show');
-});
-
-Route::get('/supervisor/dashboard', function (){
-    return view('supervisor.dashboard');
-});
-
-Route::get('/supervisor/lihatlaporan', function (){
-    return view('supervisor.lihatlaporan');
-});
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('sisw',SiswaControllers::class);
