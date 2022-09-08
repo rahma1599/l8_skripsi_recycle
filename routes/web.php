@@ -44,14 +44,12 @@ Route::get('/pengguna/{pengguna}/edit', [App\Http\Controllers\PenggunaController
 Route::match(['put', 'patch'],'/pengguna/{id}', [App\Http\Controllers\PenggunaController::class, 'update'])->name('pengguna.update');
 Route::post('/pengguna/{id}', [App\Http\Controllers\PenggunaController::class, 'destroy'])->name('pengguna.destroy');
 Route::get('/pengguna/{pengguna}', [App\Http\Controllers\PenggunaController::class, 'show'])->name('pengguna.show');
-//anggota
-Route::get('/anggota/index', [App\Http\Controllers\AnggotaController::class, 'index'])->name('anggota.index');
-Route::get('/anggota/create', [App\Http\Controllers\AnggotaController::class, 'create'])->name('anggota.create');
-Route::post('/anggota/store', [App\Http\Controllers\AnggotaController::class, 'store'])->name('anggota.store');
-Route::get('/anggota/{anggota}/edit', [App\Http\Controllers\AnggotaController::class, 'edit'])->name('anggota.edit');
-Route::match(['put', 'patch'],'/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'update'])->name('anggota.update');
-Route::post('/anggota/{id}', [App\Http\Controllers\AnggotaController::class, 'destroy'])->name('anggota.destroy');
-Route::get('/anggota/{anggota}', [App\Http\Controllers\AnggotaController::class, 'show'])->name('anggota.show');
+// supervisor
+Route::get('/supervisor/{pengguna}/show', [App\Http\Controllers\SupervisorController::class, 'show'])->name('supervisor.show');
+Route::get('/supervisor/index', [App\Http\Controllers\SupervisorController::class, 'index'])->name('supervisor.index');
+Route::get('/supervisor/list-pengguna', [App\Http\Controllers\SupervisorController::class, 'index'])->name('supervisor.index');
+Route::get('/supervisor/create-pengguna', [App\Http\Controllers\SupervisorController::class, 'create'])->name('supervisor.create');
+
 //barang
 Route::get('/barang/index', [App\Http\Controllers\BarangController::class, 'index'])->name('barang.index');
 Route::get('/barang/create', [App\Http\Controllers\BarangController::class, 'create'])->name('barang.create');
