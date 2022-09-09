@@ -30,7 +30,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('barang.create') }}">Add Barang</a>
+                      <a class="btn btn-success" href="{{ route('data_recycle.create') }}">Add Transaksi</a>
                   </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
