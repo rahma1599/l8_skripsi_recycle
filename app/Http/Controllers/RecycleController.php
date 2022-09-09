@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RecycleModel;
 use App\Http\Controllers\Controller;
+use App\Models\BarangModel;
 use Illuminate\Http\Request;
 
 class RecycleController extends Controller
@@ -15,7 +16,8 @@ class RecycleController extends Controller
      */
     public function index()
     {
-        //
+        $recycle = RecycleModel::all();
+        return view('recycle.index',compact('recycle'));
     }
 
     /**
@@ -25,7 +27,8 @@ class RecycleController extends Controller
      */
     public function create()
     {
-        //
+        $barang = BarangModel::all();
+        return view('recycle.create',compact('barang'));
     }
 
     /**
@@ -47,7 +50,6 @@ class RecycleController extends Controller
      */
     public function show(RecycleModel $recycleModel)
     {
-        //
     }
 
     /**

@@ -13,7 +13,7 @@ class BarangModel extends Model
     public $timestamps = false;
 
     protected $fillable= [
-        'kode_barang',
+        'id_barang',
         'style',
     ];
 }

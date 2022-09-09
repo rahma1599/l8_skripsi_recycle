@@ -37,21 +37,13 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">Barang</label>
-                                <select id="id_style" name="id_style" class="form-control">
+                                <select id="style" name="style" class="form-control">
                                 @foreach($style as $data)
                                 <option value="{{$data->style}}">{{$data->style}}</option>
                                 @endforeach
                                 </select>
                             </div>
                           </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="companyName">Style</label>
-                          <select id="id_style" name="id_style" class="form-control">
-                          @foreach($style as $data)
-                          <option value="{{$data->id}}">{{$data->style}}</option>
-                          @endforeach
-                          </select>
                         </div>
                       <div class="form-actions right">
                         <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
