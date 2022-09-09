@@ -41,7 +41,7 @@
           </li>
           <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-tunggu-buffing') }}" data-i18n="nav.dash.ecommerce">Tunggu Buffing</a>
           </li>
-          <li><a class="menu-item" href="{{ route('pengguna.create') }}" data-i18n="nav.dash.crypto">Siap Pouring</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-siap-pouring') }}" data-i18n="nav.dash.ecommerce">Siap Pouring</a>
           </li>
         </ul>
     </li>

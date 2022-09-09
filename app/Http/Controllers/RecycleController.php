@@ -84,7 +84,15 @@ class RecycleController extends Controller
         //
     }
 
-    public function laporanRecycle(){
+    public function laporanBelumPotong(){
+        return view('recycle.show-laporan-belum-potong');
+    }
 
+    public function laporanTungguBuffing(){
+        return view('recycle.show-laporan-tunggu-buffing');
+    }
+
+    public function laporanSiapPouring(){
+        return view('recycle.show-laporan-siap-pouring');
     }
 }
