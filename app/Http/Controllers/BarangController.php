@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\BarangModel;
+use App\Models\StyleModel;
+use App\Models\SizeModel;
+use App\Models\JabatanModel;
+use App\Models\RecycleModel;
 
-class BarangControll extends Controller
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +18,8 @@ class BarangControll extends Controller
      */
     public function index()
     {
-        
+        $vbarang = BarangModel::all();
+        return view('barang.index',compact('vbarang'));
     }
 
     /**
@@ -23,7 +29,13 @@ class BarangControll extends Controller
      */
     public function create()
     {
-        //
+        return view('barang.create');
+    }
+
+    public function stokOpnameForm()
+    {
+        return view('barang.stok-opname');
+        //dd('ke sini');
     }
 
     /**
@@ -34,7 +46,42 @@ class BarangControll extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'stok_barang' => 'required',
+            'harga_barang' => 'required',
+        ]);
+
+        $foto_barang = $request->file('foto_barang');
+        if(isset($foto_barang)){
+            $foto_extention = $foto_barang->getClientOriginalExtension();
+            $nama_foto = $request->kode_barang . "-Foto." . $foto_extention;
+            $upload_path = 'foto_barang/';
+            $request->file('foto_barang')->move($upload_path, $nama_foto);
+            //echo $nama_foto;
+            BarangModel::create([
+                'kode_barang' => $request['kode_barang'],
+                'nama_barang' => $request['nama_barang'],
+                'stok_barang' => $request['stok_barang'],
+                'harga_barang' => $request['harga_barang'],
+                'foto_barang' => $nama_foto,
+                'keterangan' => $request['keterangan'],
+            ]);
+            //Alert::warning('Tambah pengguna berhasil !');
+            return redirect()->route('barang.index');
+        }else{
+            BarangModel::create([
+                'kode_barang' => $request['kode_barang'],
+                'nama_barang' => $request['nama_barang'],
+                'stok_barang' => $request['stok_barang'],
+                'harga_barang' => $request['harga_barang'],
+                'keterangan' => $request['keterangan'],
+            ]);
+            //Alert::warning('Tambah pengguna berhasil !');
+            return redirect()->route('barang.index');
+
+        }
     }
 
     /**
@@ -43,9 +90,9 @@ class BarangControll extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(BarangModel $barang)
     {
-        //
+        return view('barang.show',compact('barang'));
     }
 
     /**
@@ -54,9 +101,9 @@ class BarangControll extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(BarangModel $barang)
     {
-        //
+        return view('barang.edit',compact('barang'));
     }
 
     /**
@@ -66,9 +113,37 @@ class BarangControll extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,BarangModel $barang)
     {
-        //
+        $request->validate([
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'stok_barang' => 'required',
+            'harga_barang' => 'required',
+        ]);
+
+        //dd($barang->id);
+        $foto_barang = $request->file('foto_barang');
+        if(isset($foto_barang)){
+            $foto_extention = $foto_barang->getClientOriginalExtension();
+            $nama_foto = $request->kode_barang . "-Foto." . $foto_extention;
+            $upload_path = 'foto_barang/';
+            $request->file('foto_barang')->move($upload_path, $nama_foto);
+
+            BarangModel::where('id',$barang->id)->update([
+                'kode_barang' => $request['kode_barang'],
+                'nama_barang' => $request['nama_barang'],
+                'stok_barang' => $request['stok_barang'],
+                'harga_barang' => $request['harga_barang'],
+                'foto_barang' => $nama_foto,
+                'keterangan' => $request['keterangan'],
+            ]);
+            return redirect()->route('barang.index')->with('Succes','Data Berhasil di Update');
+
+        }else{
+            $barang->update($request->all());
+            return redirect()->route('barang.index')->with('Succes','Data Berhasil di Update');
+        }
     }
 
     /**
@@ -77,8 +152,11 @@ class BarangControll extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(BarangModel $barang)
     {
-        //
+        $barang->delete();
+
+        return redirect()->route('barang.index')->with('Succes','Data Berhasil di Hapus');
+
     }
 }
