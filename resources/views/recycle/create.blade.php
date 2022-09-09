@@ -45,7 +45,11 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput3">Id Barang</label>
-                              <input type="text" id="id_barang" class="form-control" placeholder="Barang" name="id_barang">
+                              <select id="id_barang" name="id_barang" class="form-control">
+                                @foreach($barang as $data)
+                                <option value="{{$data->id_barang}}">{{$data->id_barang}}</option>
+                                @endforeach
+                                </select>
                             </div>
                           </div>
                           <div class="col-md-6">
@@ -59,13 +63,21 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput3">Size Barang</label>
-                              <input type="text" id="size" class="form-control" placeholder="Size Barang" name="size">
+                              <select id="size" name="size" class="form-control">
+                                @foreach($size as $data)
+                                <option value="{{$data->size}}">{{$data->size}}</option>
+                                @endforeach
+                                </select>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput4">Status Barang</label>
-                              <input type="text" id="status" class="form-control" placeholder="Status Barang" name="status">
+                              <select id="status" name="status" class="form-control">
+                                <option value="Laporan Masuk">Laporan Masuk</option>
+                                <option value="Laporan Diproses">Laporan Diproses</option>
+                                <option value="Laporan Selesai">Laporan Selesai</option>
+                                </select>
                              </div>
                             </div>
                         </div>
@@ -73,13 +85,21 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput3">Shift/Group</label>
-                              <input type="text" id="shift_group" class="form-control" placeholder="Shift Group" name="shift_group">
+                              <select id="shift_group" name="shift_group" class="form-control">
+                                <option value="1/C">1/C</option>
+                                <option value="2/B">2/B</option>
+                                <option value="3/A">3/A</option>
+                                </select>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput4">Keterangan</label>
-                              <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan">
+                              <select id="keterangan" name="keterangan" class="form-control">
+                                <option value="Belum Potong">Belum Potong</option>
+                                <option value="Tunggu Buffing">Tunggu Buffing</option>
+                                <option value="Siap Pouring">Siap Pouring</option>
+                                </select>
                              </div>
                             </div>
                         </div>
@@ -93,7 +113,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput4">Plant</label>
-                              <input type="text" id="plant" class="form-control" placeholder="Plant" name="plant">
+                              <input type="text" id="plant" class="form-control" placeholder="Plant" name="plant" value="JVB">
                              </div>
                             </div>
                         </div>
