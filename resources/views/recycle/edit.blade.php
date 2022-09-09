@@ -11,7 +11,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="basic-layout-form">Form Edit Pengguna</h4>
+                  <h4 class="card-title" id="basic-layout-form">Form Edit Transaksi Recycle</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -24,60 +24,91 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                        <form method="POST" action="{{ route('barang.update', $barang->id) }}" class="form" novalidate enctype="multipart/form-data">@csrf
+                        <form method="POST" action="{{ route('data_recycle.update',$data_recycle->id) }}" class="form" novalidate >@csrf
                             @method('PUT')
-                                <div class="form-body">
+                            <div class="form-body">
                               <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label for="projectinput1">Kode Barang</label>
-                                    <input type="text" id="kode_barang" class="form-control" placeholder="Kode Barang" name="kode_barang" value="{{ $barang->kode_barang }}">
+                                    <label for="projectinput1">Id Recycle</label>
+                                    <input type="text" id="id_recycle" class="form-control" name="id_recycle" value="" readonly>
                                   </div>
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label for="projectinput2">Nama Barang</label>
-                                    <input type="text" id="nama_barang" class="form-control" placeholder="Nama Barang" name="nama_barang" value="{{ $barang->nama_barang }}">
+                                    <label for="projectinput2">Tanggal</label>
+                                    <input type="date" id="tanggal" class="form-control" placeholder="Tanggal" name="tanggal" value="{{ $data_recycle->tanggal }}">
                                   </div>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label for="projectinput3">Stok Barang</label>
-                                    <input type="text" id="stok_barang" class="form-control" placeholder="Stok Barang" name="stok_barang"  value="{{ $barang->stok_barang }}">
+                                    <label for="projectinput3">Id Barang</label>
+                                    <input type="text" id="id_barang" class="form-control" placeholder="Barang" name="id_barang" value="{{ $data_recycle->id_barang }}">
                                   </div>
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
-                                    <label for="projectinput4">Harga Barang</label>
-                                    <input type="text" id="harga_barang" class="form-control" placeholder="Harga Barang" name="harga_barang"  value="{{ $barang->harga_barang }}">
+                                    <label for="projectinput4">Style Barang</label>
+                                    <input type="text" id="style" class="form-control" placeholder="Style Barang" name="style" value="{{ $data_recycle->style }}">
                                    </div>
                                   </div>
                               </div>
-                              <div class="form-group">
-                                <label for="companyName">Foto Barang</label>
-                                <input type="file" name="foto_barang" class="form-control" id="foto_barang" @if(empty($barang->foto_barang)) value="" @else value="{{ $barang->foto_barang }}" @endif>
-                                @if(empty($barang->foto_barang)) <img src=""/> @else <img src="{{asset('/foto_barang/'.$barang->foto_barang)}}" width="40px"/> @endif
-                            </div>
-                              <div class="form-group">
-                                <label for="companyName">Keterangan</label>
-                                <input type="text" id="keterangan" class="form-control" placeholder="keterangan" name="keterangan"  value="{{ $barang->keterangan }}">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="projectinput3">Size Barang</label>
+                                    <input type="text" id="size" class="form-control" placeholder="Size Barang" name="size" value="{{ $data_recycle->size }}">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="projectinput4">Status Barang</label>
+                                    <input type="text" id="status" class="form-control" placeholder="Status Barang" name="status" value="{{ $data_recycle->status }}">
+                                   </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="projectinput3">Shift/Group</label>
+                                    <input type="text" id="shift_group" class="form-control" placeholder="Shift Group" name="shift_group" value="{{ $data_recycle->shift_group }}">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="projectinput4">Keterangan</label>
+                                    <input type="text" id="keterangan" class="form-control" placeholder="Keterangan" name="keterangan" value="{{ $data_recycle->keterangan }}">
+                                   </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="projectinput3">Jumlah</label>
+                                    <input type="text" id="jumlah" class="form-control" placeholder="Jumlah" name="jumlah" value="{{ $data_recycle->jumlah }}">
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="projectinput4">Plant</label>
+                                    <input type="text" id="plant" class="form-control" placeholder="Plant" name="plant" value="{{ $data_recycle->plant }}">
+                                   </div>
+                                  </div>
                               </div>
                             <div class="form-actions right">
                               <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
                               <button type="submit" class="btn btn-primary btn-min-width">
-                                Update
+                                Save
                               </button>
                             </div>
                           </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-          </div>
-
+           </div>
         </section>
         <!-- // Basic form layout section end -->
       </div>

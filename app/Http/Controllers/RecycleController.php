@@ -16,8 +16,8 @@ class RecycleController extends Controller
      */
     public function index()
     {
-        $recycle = RecycleModel::all();
-        return view('recycle.index',compact('recycle'));
+        $data_recycle = RecycleModel::all();
+        return view('recycle.index',compact('data_recycle'));
     }
 
     /**
@@ -39,51 +39,104 @@ class RecycleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'di_recycle' => 'required',
+            'tanggal' => 'required',
+            'id_barang' => 'required',
+            'style' => 'required',
+            'size' => 'required',
+            'status' => 'required',
+            'jumlah' => 'required',
+            'plant' => 'required',
+            'shift_group' => 'required',
+        ]);
+
+            RecycleModel::create([
+                'id_recycle' => $request['id_recycle'],
+                'tanggal' => $request['tanggal'],
+                'id_barang' => $request['id_barang'],
+                'style' => $request['style'],
+                'size' => $request['size'],
+                'status' => $request['status'],
+                'jumlah' => $request['jumlah'],
+                'plant' => $request['plant'],
+                'keterangan' => $request['keterangan'],
+                'shift_group' => $request['shift_group'],
+                ]);
+            return redirect()->route('data_recycle.index');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RecycleModel  $recycleModel
+     * @param  \App\Models\RecycleModel  $data_recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function show(RecycleModel $recycle)
+    public function show(RecycleModel $data_recycle)
     {
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RecycleModel  $recycleModel
+     * @param  \App\Models\RecycleModel  $data_recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(RecycleModel $recycle)
+    public function edit(RecycleModel $data_recycle)
     {
-        //
+        //dd($data_recycle->id);
+        return view('recycle.edit',compact('data_recycle'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RecycleModel  $recycleModel
+     * @param  \App\Models\RecycleModel  $data_recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RecycleModel $recycle)
+    public function update(Request $request, RecycleModel $data_recycle)
     {
-        //
+        $request->validate([
+            'di_recycle' => 'required',
+            'tanggal' => 'required',
+            'id_barang' => 'required',
+            'style' => 'required',
+            'size' => 'required',
+            'status' => 'required',
+            'jumlah' => 'required',
+            'plant' => 'required',
+            'shift_group' => 'required',
+        ]);
+
+        //dd($request['style']);
+        $data_recycle->update($request->all());
+         RecycleModel::where('id',$request['id'])->update([
+            'id_recycle' => $request['id_recycle'],
+            'tanggal' => $request['tanggal'],
+            'id_barang' => $request['id_barang'],
+            'style' => $request['style'],
+            'size' => $request['size'],
+            'status' => $request['status'],
+            'jumlah' => $request['jumlah'],
+            'plant' => $request['plant'],
+            'keterangan' => $request['keterangan'],
+            'shift_group' => $request['shift_group'],
+        ]);
+        return redirect()->route('data_recycle.index')->with('Succes','Data Berhasil di Update');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RecycleModel  $recycleModel
+     * @param  \App\Models\RecycleModel  $data_recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RecycleModel $recycle)
+    public function destroy(RecycleModel $data_recycle)
     {
-        $recycle->delete();
+        $data_recycle->delete();
         return redirect()->route('recycle.index')->with('Succes','Data Berhasil di Hapus');
     }
 

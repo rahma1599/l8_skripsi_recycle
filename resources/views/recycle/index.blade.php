@@ -49,7 +49,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($recycle as $data )
+                          @foreach ($data_recycle as $data )
                             <tr>
                               <td>{{ $data->id_recycle }}</td>
                               <td>{{ $data->tanggal }}</td>
@@ -62,9 +62,9 @@
                               <td>{{ $data->shift_group }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td class="text-center">
-                                <form action="{{ route('recycle.destroy',$data->id) }}" method="POST">
-                                  <a class="btn btn-info btn-sm" href="{{ route('recycle.show',$data->id) }}"><i class="la la-search"></i></a>
-                                    <a class="btn btn-primary btn-sm" href="{{ route('recycle.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                <form action="{{ route('data_recycle.destroy',$data->id) }}" method="POST">
+                                  <a class="btn btn-info btn-sm" href="{{ route('data_recycle.show',$data->id) }}"><i class="la la-search"></i></a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('data_recycle.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>

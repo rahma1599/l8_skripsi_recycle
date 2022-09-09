@@ -29,8 +29,8 @@
       </li>
       <li class=" active"><a href="#"><i class="la la-book"></i><span class="menu-title" data-i18n="nav.dash.main">Manage Recycle</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="{{ route('recycle.index') }}" data-i18n="nav.dash.ecommerce">Data Recyle</a></li>
-          <li class="menu-item"><a class="menu-item" href="{{ route('recycle.create') }}" data-i18n="nav.dash.ecommerce">Input Data Recycle</a></li>
+          <li class="menu-item"><a class="menu-item" href="{{ route('data_recycle.index') }}" data-i18n="nav.dash.ecommerce">Data Recyle</a></li>
+          <li class="menu-item"><a class="menu-item" href="{{ route('data_recycle.create') }}" data-i18n="nav.dash.ecommerce">Input Data Recycle</a></li>
           </li>
         </ul>
       </li>

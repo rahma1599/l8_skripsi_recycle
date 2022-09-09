@@ -10,6 +10,8 @@ class RecycleModel extends Model
     use HasFactory;
     protected $table = 'tbl_tr_recycle';
     protected $primary_key = 'id';
+    public $timestamps = false;
+
     protected $fillable = [
     'id_recycle',
     'tanggal',
