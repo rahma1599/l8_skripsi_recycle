@@ -7,13 +7,13 @@
       </li>
       <li class="active"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.templates.main">Dashboard</span></a>
       </li>
-      <li class=" active"><a href="#"><i class="la la-print"></i><span class="menu-title" data-i18n="nav.dash.main">Laporan Data Recyle</span></a>
+      <li class=" active"><a href="#"><i class="la la-users"></i><span class="menu-title" data-i18n="nav.dash.main">Laporan</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="{{ route('admin.dashboard') }}" data-i18n="nav.dash.ecommerce">Belum Potong</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-belum-potong') }}" data-i18n="nav.dash.ecommerce">Belum Potong</a>
           </li>
-          <li class="menu-item"><a class="menu-item" href="{{ route('pengguna.index') }}" data-i18n="nav.dash.ecommerce">Tunggu Buffing</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-tunggu-buffing') }}" data-i18n="nav.dash.ecommerce">Tunggu Buffing</a>
           </li>
-          <li><a class="menu-item" href="{{ route('pengguna.create') }}" data-i18n="nav.dash.crypto">Siap Pouring</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-siap-pouring') }}" data-i18n="nav.dash.ecommerce">Siap Pouring</a>
           </li>
         </ul>
     </li>

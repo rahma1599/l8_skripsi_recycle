@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 09/09/2022 15:10:02
+ Date: 09/09/2022 15:25:07
 */
 
 SET NAMES utf8mb4;
@@ -67,15 +67,24 @@ CREATE TABLE `tbl_m_barang`  (
   `style` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`, `id_barang`) USING BTREE,
   UNIQUE INDEX `kode_barang`(`id_barang` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_m_barang
 -- ----------------------------
-INSERT INTO `tbl_m_barang` VALUES (1, 'DH8016-002', '00A/00A');
-INSERT INTO `tbl_m_barang` VALUES (2, 'DH8016-100', '10A/10A');
-INSERT INTO `tbl_m_barang` VALUES (3, 'DM0027-001', '01B/10A');
-INSERT INTO `tbl_m_barang` VALUES (4, 'XXXX', '01B/10A');
+INSERT INTO `tbl_m_barang` VALUES (1, 'DH8016-100', '10A/10A');
+INSERT INTO `tbl_m_barang` VALUES (2, 'DM0027-001', '01B/10A');
+INSERT INTO `tbl_m_barang` VALUES (3, 'FB1289-200', '20I/10A');
+INSERT INTO `tbl_m_barang` VALUES (4, 'DQ3955-001', '04Z/10A');
+INSERT INTO `tbl_m_barang` VALUES (5, 'DV2621-200', '4PB/10A');
+INSERT INTO `tbl_m_barang` VALUES (6, 'FD0344-397', '26B/10A');
+INSERT INTO `tbl_m_barang` VALUES (7, 'DQ9131-700', '77A/10A');
+INSERT INTO `tbl_m_barang` VALUES (8, 'DH8014-100', '12J/00A');
+INSERT INTO `tbl_m_barang` VALUES (9, 'DQ9131-002', '01B/00A');
+INSERT INTO `tbl_m_barang` VALUES (10, 'DZ4497-001', '71R/10A');
+INSERT INTO `tbl_m_barang` VALUES (11, 'DX0754-002', '00A/10A');
+INSERT INTO `tbl_m_barang` VALUES (12, 'DX0754-001', '00A/10A');
+INSERT INTO `tbl_m_barang` VALUES (13, 'FB3357-001', '79S/10A');
 
 -- ----------------------------
 -- Table structure for tbl_m_jabatan
