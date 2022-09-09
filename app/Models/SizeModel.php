@@ -12,7 +12,7 @@ class SizeModel extends Model
     protected $primarykey = 'id';
 
     protected $fillable= [
-        'Size',
+        'size',
 
     ];
 }

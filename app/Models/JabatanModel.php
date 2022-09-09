@@ -9,11 +9,10 @@ class JabatanModel extends Model
 {
     use HasFactory;
     protected $table = 'tbl_m_jabatan';
-    protected $primarykey = 'id_jabatan';
+    protected $primarykey = 'id';
 
     protected $fillable= [
-        'Id Jabatan',
-        'Jabatan',
-
+        'id_jabatan',
+        'jabatan',
     ];
 }
