@@ -13,7 +13,7 @@ class RecycleModel extends Model
     protected $fillable = [
     'id_recycle',
     'tanggal',
-    'kode_barang',
+    'id_barang',
     'style',
     'plant',
     'shift_group',

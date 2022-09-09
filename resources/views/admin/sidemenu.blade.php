@@ -14,7 +14,7 @@
           </li>
         </ul>
     </li>
-      <li class=" active"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.templates.main">Dashboard</span></a></li>
+      <li class=" active"><a href="{{ route('admin.dashboard') }}"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.templates.main">Dashboard</span></a></li>
       <li class=" active"><a href="#"><i class="la la-book"></i><span class="menu-title" data-i18n="nav.dash.main">Manage Barang</span></a>
         <ul class="menu-content">
           <li class="menu-item"><a class="menu-item" href="{{ route('barang.index') }}" data-i18n="nav.dash.ecommerce">Data Barang </a></li>

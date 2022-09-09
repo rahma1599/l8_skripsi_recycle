@@ -48,7 +48,7 @@ class RecycleController extends Controller
      * @param  \App\Models\RecycleModel  $recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function show(RecycleModel $recycleModel)
+    public function show(RecycleModel $recycle)
     {
     }
 
@@ -58,7 +58,7 @@ class RecycleController extends Controller
      * @param  \App\Models\RecycleModel  $recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(RecycleModel $recycleModel)
+    public function edit(RecycleModel $recycle)
     {
         //
     }
@@ -70,7 +70,7 @@ class RecycleController extends Controller
      * @param  \App\Models\RecycleModel  $recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RecycleModel $recycleModel)
+    public function update(Request $request, RecycleModel $recycle)
     {
         //
     }
@@ -81,9 +81,10 @@ class RecycleController extends Controller
      * @param  \App\Models\RecycleModel  $recycleModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RecycleModel $recycleModel)
+    public function destroy(RecycleModel $recycle)
     {
-        //
+        $recycle->delete();
+        return redirect()->route('recycle.index')->with('Succes','Data Berhasil di Hapus');
     }
 
     public function laporanBelumPotong(){

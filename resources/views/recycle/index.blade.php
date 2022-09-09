@@ -17,7 +17,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Daftar Barang</h4>
+                  <h4 class="card-title">Daftar Transaksi Recycle</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -35,31 +35,36 @@
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Stok</th>
-                            <th>Harga</th>
-                            <th>Foto</th>
-                            <th>Update</th>
+                            <th>Id Transaksi</th>
+                            <th>Tanggal</th>
+                            <th>Id Barang</th>
+                            <th>Style</th>
+                            <th>Jumlah</th>
+                            <th>Size</th>
+                            <th>Plant</th>
+                            <th>Status</th>
+                            <th>Shift/Group</th>
                             <th>Keterangan</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($vbarang as $data )
+                          @foreach ($recycle as $data )
                             <tr>
-                              <td>{{ $data->kode_barang }}</td>
-                              <td>{{ $data->nama_barang }}</td>
-                              <td>{{ $data->stok_barang }}</td>
-                              <td>{{ $data->harga_barang }}</td>
-                              <td>@if(empty($data->foto_barang)) <img src=""/> @else <img src="{{asset('/foto_barang/'.$data->foto_barang)}}" width="40px"/> @endif
-                              </td>
-                              <td>{{ $data->updated_at }}</td>
+                              <td>{{ $data->id_recycle }}</td>
+                              <td>{{ $data->tanggal }}</td>
+                              <td>{{ $data->id_barng }}</td>
+                              <td>{{ $data->style }}</td>
+                              <td>{{ $data->jumlah }}</td>
+                              <td>{{ $data->size }}</td>
+                              <td>{{ $data->plant }}</td>
+                              <td>{{ $data->status }}</td>
+                              <td>{{ $data->shift_group }}</td>
                               <td>{{ $data->keterangan }}</td>
                               <td class="text-center">
-                                <form action="{{ route('barang.destroy',$data->kode_barang) }}" method="POST">
-                                  <a class="btn btn-info btn-sm" href="{{ route('barang.show',$data->id) }}"><i class="la la-search"></i></a>
-                                    <a class="btn btn-primary btn-sm" href="{{ route('barang.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                <form action="{{ route('recycle.destroy',$data->id) }}" method="POST">
+                                  <a class="btn btn-info btn-sm" href="{{ route('recycle.show',$data->id) }}"><i class="la la-search"></i></a>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('recycle.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
