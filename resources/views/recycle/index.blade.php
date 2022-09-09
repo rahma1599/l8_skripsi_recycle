@@ -37,16 +37,28 @@
                           <tr>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
+                            <th>Stok</th>
+                            <th>Harga</th>
+                            <th>Foto</th>
+                            <th>Update</th>
+                            <th>Keterangan</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
                           @foreach ($vbarang as $data )
                             <tr>
-                              <td>{{ $data->id_barang }}</td>
-                              <td>{{ $data->style }}</td>
+                              <td>{{ $data->kode_barang }}</td>
+                              <td>{{ $data->nama_barang }}</td>
+                              <td>{{ $data->stok_barang }}</td>
+                              <td>{{ $data->harga_barang }}</td>
+                              <td>@if(empty($data->foto_barang)) <img src=""/> @else <img src="{{asset('/foto_barang/'.$data->foto_barang)}}" width="40px"/> @endif
+                              </td>
+                              <td>{{ $data->updated_at }}</td>
+                              <td>{{ $data->keterangan }}</td>
                               <td class="text-center">
-                                <form action="{{ route('barang.destroy',$data->id_barang) }}" method="POST">
+                                <form action="{{ route('barang.destroy',$data->kode_barang) }}" method="POST">
+                                  <a class="btn btn-info btn-sm" href="{{ route('barang.show',$data->id) }}"><i class="la la-search"></i></a>
                                     <a class="btn btn-primary btn-sm" href="{{ route('barang.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}

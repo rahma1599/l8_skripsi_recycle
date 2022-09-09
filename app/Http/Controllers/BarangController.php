@@ -29,7 +29,8 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view('barang.create');
+        $style = StyleModel::all();
+        return view('barang.create',compact('style'));
     }
 
     public function stokOpnameForm()
@@ -103,7 +104,8 @@ class BarangController extends Controller
      */
     public function edit(BarangModel $barang)
     {
-        return view('barang.edit',compact('barang'));
+        $style = StyleModel::where('style', '!=', $barang->style)->get();
+        return view('barang.edit',compact(['barang','style']));
     }
 
     /**
@@ -113,37 +115,20 @@ class BarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,BarangModel $barang)
+    public function update(Request $request, BarangModel $barang)
     {
-        $request->validate([
-            'kode_barang' => 'required',
-            'nama_barang' => 'required',
-            'stok_barang' => 'required',
-            'harga_barang' => 'required',
+         $request->validate([
+            'id_barang' => 'required',
+            'style' => 'required',
         ]);
 
-        //dd($barang->id);
-        $foto_barang = $request->file('foto_barang');
-        if(isset($foto_barang)){
-            $foto_extention = $foto_barang->getClientOriginalExtension();
-            $nama_foto = $request->kode_barang . "-Foto." . $foto_extention;
-            $upload_path = 'foto_barang/';
-            $request->file('foto_barang')->move($upload_path, $nama_foto);
-
-            BarangModel::where('id',$barang->id)->update([
-                'kode_barang' => $request['kode_barang'],
-                'nama_barang' => $request['nama_barang'],
-                'stok_barang' => $request['stok_barang'],
-                'harga_barang' => $request['harga_barang'],
-                'foto_barang' => $nama_foto,
-                'keterangan' => $request['keterangan'],
-            ]);
-            return redirect()->route('barang.index')->with('Succes','Data Berhasil di Update');
-
-        }else{
-            $barang->update($request->all());
-            return redirect()->route('barang.index')->with('Succes','Data Berhasil di Update');
-        }
+        //dd($request['style']);
+        $barang->update($request->all());
+         BarangModel::where('id_barang',$request['style'])->update([
+            // 'id_barang' => $request['id_barang'],
+            'style' => $request['style'],
+        ]);
+        return redirect()->route('barang.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
@@ -155,7 +140,6 @@ class BarangController extends Controller
     public function destroy(BarangModel $barang)
     {
         $barang->delete();
-
         return redirect()->route('barang.index')->with('Succes','Data Berhasil di Hapus');
 
     }

@@ -13,6 +13,5 @@ class SizeModel extends Model
 
     protected $fillable= [
         'size',
-
     ];
 }

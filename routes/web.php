@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaControllers;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\SizeController;
+use App\Http\Controllers\RecycleController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -51,13 +54,16 @@ Route::get('/supervisor/list-pengguna', [App\Http\Controllers\SupervisorControll
 Route::get('/supervisor/create-pengguna', [App\Http\Controllers\SupervisorController::class, 'create'])->name('supervisor.create');
 
 //barang
-Route::get('/barang/index', [App\Http\Controllers\BarangController::class, 'index'])->name('barang.index');
-Route::get('/barang/create', [App\Http\Controllers\BarangController::class, 'create'])->name('barang.create');
-Route::post('/barang/store', [App\Http\Controllers\BarangController::class, 'store'])->name('barang.store');
-Route::get('/barang/{barang}/edit', [App\Http\Controllers\BarangController::class, 'edit'])->name('barang.edit');
-Route::match(['put', 'patch'],'/barang/{id}', [App\Http\Controllers\BarangController::class, 'update'])->name('barang.update');
-Route::post('/barang/{id}', [App\Http\Controllers\BarangController::class, 'destroy'])->name('barang.destroy');
-Route::get('/barang/{barang}', [App\Http\Controllers\BarangController::class, 'show'])->name('barang.show');
+Route::resource('barang',BarangController::class);
+//size
+Route::resource('size',SizeController::class);
+//recycle
+Route::resource('recycle',RecycleController::class);
+Route::get('/admin/laporan-belum-potong', [App\Http\Controllers\RecycleController::class, 'laporanRecycle'])->name('admin.laporan-belum-potong');
+Route::get('/admin/laporan-tunggu-buffing', [App\Http\Controllers\RecycleController::class, 'laporanRecycle'])->name('admin.laporan-tunggu-buffing');
+
+
+
 
 
 Route::get('/logout',[App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

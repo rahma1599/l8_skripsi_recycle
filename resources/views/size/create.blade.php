@@ -12,7 +12,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="basic-layout-form">Form Tambah Barang</h4>
+                  <h4 class="card-title" id="basic-layout-form">Form Tambah Size</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -27,32 +27,12 @@
                     <div class="card-text">
                     <form method="POST" action="{{ route('barang.store') }}" class="form" novalidate enctype="multipart/form-data">@csrf
                       <div class="form-body">
-                        <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="projectinput1">ID Barang</label>
-                              <input type="text" id="id_barang" class="form-control" placeholder="ID Barang" name="id_barang">
+                              <label for="projectinput1">Size</label>
+                              <input type="text" id="size" class="form-control" placeholder="Size Barang" name="size">
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="projectinput1">Barang</label>
-                                <select id="id_style" name="id_style" class="form-control">
-                                @foreach($style as $data)
-                                <option value="{{$data->style}}">{{$data->style}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="companyName">Style</label>
-                          <select id="id_style" name="id_style" class="form-control">
-                          @foreach($style as $data)
-                          <option value="{{$data->id}}">{{$data->style}}</option>
-                          @endforeach
-                          </select>
-                        </div>
                       <div class="form-actions right">
                         <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
                         <button type="submit" class="btn btn-primary btn-min-width">

@@ -11,6 +11,7 @@ class RecycleModel extends Model
     protected $table = 'tbl_tr_recycle';
     protected $primary_key = 'id';
     protected $fillable = [
+    'id_recycle',
     'tanggal',
     'kode_barang',
     'style',

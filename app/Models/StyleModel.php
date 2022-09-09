@@ -13,6 +13,5 @@ class StyleModel extends Model
 
     protected $fillable= [
         'style',
-
     ];
 }
