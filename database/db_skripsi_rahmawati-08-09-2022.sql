@@ -11,7 +11,7 @@
  Target Server Version : 100411
  File Encoding         : 65001
 
- Date: 08/09/2022 22:43:03
+ Date: 09/09/2022 15:10:02
 */
 
 SET NAMES utf8mb4;
@@ -62,19 +62,20 @@ CREATE TABLE `personal_access_tokens`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_m_barang`;
 CREATE TABLE `tbl_m_barang`  (
+  `id` int NOT NULL AUTO_INCREMENT,
   `id_barang` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `id_style` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`id_barang`) USING BTREE,
-  INDEX `kode_barang`(`id_barang` ASC) USING BTREE,
-  INDEX `id_style`(`id_style` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+  `style` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`, `id_barang`) USING BTREE,
+  UNIQUE INDEX `kode_barang`(`id_barang` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_m_barang
 -- ----------------------------
-INSERT INTO `tbl_m_barang` VALUES ('DH8016-002', '00A/00A');
-INSERT INTO `tbl_m_barang` VALUES ('DM0027-001', '01B/10A');
-INSERT INTO `tbl_m_barang` VALUES ('DH8016-100', '10A/10A');
+INSERT INTO `tbl_m_barang` VALUES (1, 'DH8016-002', '00A/00A');
+INSERT INTO `tbl_m_barang` VALUES (2, 'DH8016-100', '10A/10A');
+INSERT INTO `tbl_m_barang` VALUES (3, 'DM0027-001', '01B/10A');
+INSERT INTO `tbl_m_barang` VALUES (4, 'XXXX', '01B/10A');
 
 -- ----------------------------
 -- Table structure for tbl_m_jabatan
@@ -154,36 +155,16 @@ INSERT INTO `tbl_m_size` VALUES (23, '15');
 DROP TABLE IF EXISTS `tbl_m_style`;
 CREATE TABLE `tbl_m_style`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `size` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `style` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_m_style
 -- ----------------------------
-INSERT INTO `tbl_m_style` VALUES (1, '3');
-INSERT INTO `tbl_m_style` VALUES (2, '3T');
-INSERT INTO `tbl_m_style` VALUES (3, '4');
-INSERT INTO `tbl_m_style` VALUES (4, '4T');
-INSERT INTO `tbl_m_style` VALUES (5, '5');
-INSERT INTO `tbl_m_style` VALUES (6, '5T');
-INSERT INTO `tbl_m_style` VALUES (7, '6');
-INSERT INTO `tbl_m_style` VALUES (8, '6T');
-INSERT INTO `tbl_m_style` VALUES (9, '7');
-INSERT INTO `tbl_m_style` VALUES (10, '7T');
-INSERT INTO `tbl_m_style` VALUES (11, '8T');
-INSERT INTO `tbl_m_style` VALUES (12, '8');
-INSERT INTO `tbl_m_style` VALUES (13, '9');
-INSERT INTO `tbl_m_style` VALUES (14, '9T');
-INSERT INTO `tbl_m_style` VALUES (15, '10');
-INSERT INTO `tbl_m_style` VALUES (16, '10T');
-INSERT INTO `tbl_m_style` VALUES (17, '11');
-INSERT INTO `tbl_m_style` VALUES (18, '11T');
-INSERT INTO `tbl_m_style` VALUES (19, '12');
-INSERT INTO `tbl_m_style` VALUES (20, '12T');
-INSERT INTO `tbl_m_style` VALUES (21, '13');
-INSERT INTO `tbl_m_style` VALUES (22, '14');
-INSERT INTO `tbl_m_style` VALUES (23, '15');
+INSERT INTO `tbl_m_style` VALUES (1, '00A/00A');
+INSERT INTO `tbl_m_style` VALUES (2, '10A/10A');
+INSERT INTO `tbl_m_style` VALUES (3, '01B/10A');
 
 -- ----------------------------
 -- Table structure for tbl_m_user
@@ -214,27 +195,29 @@ INSERT INTO `tbl_m_user` VALUES (2, 'Amelia', 'Noviasari', 'Level User', 'Peremp
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_tr_recycle`;
 CREATE TABLE `tbl_tr_recycle`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id_recycle` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `tanggal` date NOT NULL,
-  `shift/group` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `keterangan` enum('Belum Potong','Tunggu Buffing','Siap Pouring') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `shift_group` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `jumlah` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `kode_barang` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_barang` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `style` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `size` char(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `plant` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `status` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  INDEX `fk_id_barang`(`kode_barang` ASC) USING BTREE,
-  INDEX `fk_id_style`(`style` ASC) USING BTREE,
-  CONSTRAINT `fk_id_barang` FOREIGN KEY (`kode_barang`) REFERENCES `tbl_m_barang` (`id_barang`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_id_style` FOREIGN KEY (`style`) REFERENCES `tbl_m_barang` (`id_style`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+  `keterangan` enum('Belum Potong','Tunggu Buffing','Siap Pouring') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime NULL DEFAULT NULL,
+  `updated_at` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `fk_id_barang`(`id_barang` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tbl_tr_recycle
 -- ----------------------------
-INSERT INTO `tbl_tr_recycle` VALUES ('2022-07-20', '1/C', 'Tunggu Buffing', '282 Prs', 'DH8016-002', '00A/00A', '3', 'Jvb', 'Laporan Masuk');
-INSERT INTO `tbl_tr_recycle` VALUES ('2022-08-01', '2/B', 'Belum Potong', '374 Prs', 'DH8016-100', '10A/10A', '4', 'Jvb', 'Laporan Diproses');
-INSERT INTO `tbl_tr_recycle` VALUES ('2022-07-06', '3/A', 'Siap Pouring', '2074 Prs', 'DM0027-001', '01B/10A', '5', 'Jvb', 'Laporan Selesai');
+INSERT INTO `tbl_tr_recycle` VALUES (1, 'TR00001', '2022-07-20', '1/C', '282 Prs', 'DH8016-002', '00A/00A', '3', 'Jvb', 'Laporan Masuk', 'Tunggu Buffing', NULL, NULL);
+INSERT INTO `tbl_tr_recycle` VALUES (2, 'TR00002', '2022-08-01', '2/B', '374 Prs', 'DH8016-100', '10A/10A', '4', 'Jvb', 'Laporan Diproses', 'Belum Potong', NULL, NULL);
+INSERT INTO `tbl_tr_recycle` VALUES (3, 'TR00003', '2022-07-06', '3/A', '2074 Prs', 'DM0027-001', '01B/10A', '5', 'Jvb', 'Laporan Selesai', 'Siap Pouring', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for users
