@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\AutoNumber;
 use App\Models\RecycleModel;
 use App\Http\Controllers\Controller;
 use App\Models\BarangModel;
@@ -28,9 +29,10 @@ class RecycleController extends Controller
      */
     public function create()
     {
+        $no_urut = AutoNumber::getRecycleAutoNo('TR');
         $barang = BarangModel::all();
         $size = SizeModel::all();
-        return view('recycle.create',compact(['barang','size']));
+        return view('recycle.create',compact(['barang','size','no_urut']));
     }
 
     /**
@@ -42,7 +44,7 @@ class RecycleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'di_recycle' => 'required',
+            'id_recycle' => 'required',
             'tanggal' => 'required',
             'id_barang' => 'required',
             'style' => 'required',
@@ -51,6 +53,7 @@ class RecycleController extends Controller
             'jumlah' => 'required',
             'plant' => 'required',
             'shift_group' => 'required',
+            'keterangan' => 'required',
         ]);
 
             RecycleModel::create([
@@ -101,7 +104,7 @@ class RecycleController extends Controller
     public function update(Request $request, RecycleModel $data_recycle)
     {
         $request->validate([
-            'di_recycle' => 'required',
+            'id_recycle' => 'required',
             'tanggal' => 'required',
             'id_barang' => 'required',
             'style' => 'required',

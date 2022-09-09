@@ -31,7 +31,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="projectinput1">Id Recycle</label>
-                                    <input type="text" id="id_recycle" class="form-control" name="id_recycle" value="" readonly>
+                                    <input type="text" id="id_recycle" class="form-control" name="id_recycle" value="{{ $data_recycle->id_recycle }}" readonly>
                                   </div>
                                 </div>
                                 <div class="col-md-6">
@@ -100,7 +100,7 @@
                             <div class="form-actions right">
                               <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
                               <button type="submit" class="btn btn-primary btn-min-width">
-                                Save
+                                Update
                               </button>
                             </div>
                           </form>
