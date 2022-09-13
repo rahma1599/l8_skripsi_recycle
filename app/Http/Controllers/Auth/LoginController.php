@@ -70,7 +70,7 @@ class LoginController extends Controller
             if (Auth::user()->level == 'admin'){
                 return redirect('admin/dashboard');
             }elseif(Auth::user()->level == 'supervisor'){
-                return redirect('supervisor/index');
+                return redirect('supervisor/dashboard');
             }
         }
 

@@ -15,77 +15,162 @@
     <div class="content-wrapper">
       <div class="content-header row">
       </div>
-        <div class="row">
-            <div class="col-xl-3 col-lg-6 col-12">
-                <div class="card pull-up">
-                    <div class="card-content">
-                        <div class="card-body">
-                        <div class="media d-flex">
-                            <div class="media-body text-left">
-                            <h3 class="warning">850</h3>
-                            <h6>Prioritas</h6>
-                            </div>
-                            <div>
-                            <i class="icon-bulb warning font-large-5 float-right"></i>
-                            </div>
+      <div class="row">
+        <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+                <div class="card-content">
+                    <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                        <h3 class="warning">{{ $recycle_all }}</h3>
+                        <h6>Semua Transaksi Recycle</h6>
                         </div>
+                        <div>
+                        <i class="icon-bulb warning font-large-5 float-right"></i>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-12">
-                <div class="card pull-up">
-                    <div class="card-content">
-                        <div class="card-body">
-                        <div class="media d-flex">
-                            <div class="media-body text-left">
-                            <h3 class="danger">748</h3>
-                            <h6>Belum Diproses</h6>
-                            </div>
-                            <div>
-                            <i class="icon-envelope-letter danger font-large-5 float-right"></i>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-1 col-1">
-                <div class="card pull-up">
-                    <div class="card-content">
-                        <div class="card-body">
-                        <div class="media d-flex">
-                            <div class="media-body text-left">
-                            <h3 class="info">146</h3>
-                            <h6>Diperoses</h6>
-                            </div>
-                            <div>
-                            <i class="icon-envelope-open info font-large-5 float-right"></i>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6 col-12">
-                <div class="card pull-up">
-                    <div class="card-content">
-                        <div class="card-body">
-                        <div class="media d-flex">
-                            <div class="media-body text-left">
-                            <h3 class="success">146</h3>
-                            <h6>Selesai</h6>
-                            </div>
-                            <div>
-                            <i class="icon-check success font-large-5 float-right"></i>
-                            </div>
-                        </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+                <div class="card-content">
+                    <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                        <h3 class="danger">{{ $recycle_masuk }}</h3>
+                        <h6>Recycle Masuk</h6>
+                        </div>
+                        <div>
+                        <i class="icon-envelope-letter danger font-large-5 float-right"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-1 col-1">
+            <div class="card pull-up">
+                <div class="card-content">
+                    <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                        <h3 class="info">{{ $recycle_diproses }}</h3>
+                        <h6>Recycle Diproses</h6>
+                        </div>
+                        <div>
+                        <i class="icon-envelope-open info font-large-5 float-right"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+            <div class="card pull-up">
+                <div class="card-content">
+                    <div class="card-body">
+                    <div class="media d-flex">
+                        <div class="media-body text-left">
+                        <h3 class="success">{{ $recycle_selesai }}</h3>
+                        <h6>Recycle Selesai</h6>
+                        </div>
+                        <div>
+                        <i class="icon-check success font-large-5 float-right"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="info">{{ $total_inactive_user }}</h3>
+                    <h6>Pengguna Non Aktif</h6>
+                  </div>
+                  <div>
+                    <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                  </div>
+                </div>
+                <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                  <div class="progress-bar bg-gradient-x-info" role="progressbar" style="width: 80%"
+                  aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="warning">{{ $total_active_user }}</h3>
+                    <h6>Pengguna Aktif</h6>
+                  </div>
+                  <div>
+                    <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                  </div>
+                </div>
+                <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                  <div class="progress-bar bg-gradient-x-warning" role="progressbar" style="width: 65%"
+                  aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="success">{{ $total_user }}</h3>
+                    <h6>Total Pengguna</h6>
+                  </div>
+                  <div>
+                    <i class="icon-user-follow success font-large-2 float-right"></i>
+                  </div>
+                </div>
+                <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                  <div class="progress-bar bg-gradient-x-success" role="progressbar" style="width: 75%"
+                  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-12">
+          <div class="card pull-up">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="danger">{{ $total_admin }}</h3>
+                    <h6>Pengguna Level Admin</h6>
+                  </div>
+                  <div>
+                    <i class="icon-heart danger font-large-2 float-right"></i>
+                  </div>
+                </div>
+                <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
+                  <div class="progress-bar bg-gradient-x-danger" role="progressbar" style="width: 85%"
+                  aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
          <div class="content-body">
             <!-- HTML5 export buttons table -->
             <section id="html5">
@@ -120,7 +205,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($users as $data )
+                            @foreach ($user as $data )
                                 <tr>
                                 <td>{{ $data->nik }}</td>
                                 <td>{{ $data->name }}</td>

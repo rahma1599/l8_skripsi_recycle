@@ -35,7 +35,6 @@
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>
-                            <th>Id Transaksi</th>
                             <th>Tanggal</th>
                             <th>Id Barang</th>
                             <th>Style</th>
@@ -51,9 +50,8 @@
                         <tbody>
                           @foreach ($data_recycle as $data )
                             <tr>
-                              <td>{{ $data->id_recycle }}</td>
                               <td>{{ $data->tanggal }}</td>
-                              <td>{{ $data->id_barng }}</td>
+                              <td>{{ $data->id_barang }}</td>
                               <td>{{ $data->style }}</td>
                               <td>{{ $data->jumlah }}</td>
                               <td>{{ $data->size }}</td>

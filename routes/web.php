@@ -39,7 +39,7 @@ Auth::routes();
 // Admin
 Route::get('/admin/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('admin.show');
 Route::get('/admin/dashboard', [App\Http\Controllers\PenggunaController::class, 'dashboard'])->name('admin.dashboard');
-Route::get('/admin/list-pengguna', [App\Http\Controllers\PenggunaController::class, 'index'])->name('pengguna.index');
+Route::get('/admin/pengguna', [App\Http\Controllers\PenggunaController::class, 'index'])->name('pengguna.index');
 Route::get('/admin/create-pengguna', [App\Http\Controllers\PenggunaController::class, 'create'])->name('pengguna.create');
 // Pengguna
 Route::post('/pengguna/store', [App\Http\Controllers\PenggunaController::class, 'store'])->name('pengguna.store');
@@ -50,8 +50,8 @@ Route::get('/pengguna/{pengguna}', [App\Http\Controllers\PenggunaController::cla
 // supervisor
 Route::get('/supervisor/{pengguna}/show', [App\Http\Controllers\SupervisorController::class, 'show'])->name('supervisor.show');
 Route::get('/supervisor/index', [App\Http\Controllers\SupervisorController::class, 'index'])->name('supervisor.index');
-Route::get('/supervisor/list-pengguna', [App\Http\Controllers\SupervisorController::class, 'index'])->name('supervisor.index');
 Route::get('/supervisor/create-pengguna', [App\Http\Controllers\SupervisorController::class, 'create'])->name('supervisor.create');
+Route::get('/supervisor/dashboard', [App\Http\Controllers\SupervisorController::class, 'dashboard'])->name('supervisor.dashboard');
 
 //barang
 Route::resource('barang',BarangController::class);

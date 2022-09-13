@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RecycleModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +33,14 @@ class PenggunaController extends Controller
         $total_inactive_user = User::where('status', 'disabled')->count();
         $total_admin = User::where('level', 'admin')->count();
         $user = User::all();
-        return view('admin.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
+        $data_recycle = RecycleModel::all();
+        $recycle_all = RecycleModel::count();
+        $recycle_masuk = RecycleModel::where('status','Laporan Masuk')->count();
+        $recycle_diproses = RecycleModel::where('status','Laporan Diproses')->count();
+        $recycle_selesai = RecycleModel::where('status','Laporan Selesai')->count();
+        return view('admin.dashboard',compact(['user','total_user','total_active_user','total_inactive_user','total_admin','recycle_all','data_recycle', 'recycle_masuk','recycle_diproses','recycle_selesai']));
+
+ //       return view('admin.dashboard',['users' => $user,'total_users' => $total_user,'total_active_users' => $total_active_user, 'total_inactive_users' => $total_inactive_user, 'total_admins' => $total_admin ]);
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\RecycleModel;
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
@@ -15,9 +16,21 @@ class SupervisorController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('supervisor.index',['users' => $user ]);
+        $data_recycle = RecycleModel::all();
+        return view('supervisor.index',compact('data_recycle'));
     }
+
+    public function dashboard()
+    {
+
+        $data_recycle = RecycleModel::all();
+        $recycle_all = RecycleModel::count();
+        $recycle_masuk = RecycleModel::where('status','Laporan Masuk')->count();
+        $recycle_diproses = RecycleModel::where('status','Laporan Diproses')->count();
+        $recycle_selesai = RecycleModel::where('status','Laporan Selesai')->count();
+        return view('supervisor.dashboard',compact(['recycle_all','data_recycle', 'recycle_masuk','recycle_diproses','recycle_selesai']));
+    }
+
 
     /**
      * Show the form for creating a new resource.
