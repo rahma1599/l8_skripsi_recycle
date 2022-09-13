@@ -60,9 +60,9 @@ Route::resource('size',SizeController::class);
 //recycle
 Route::resource('data_recycle',RecycleController::class);
 
-Route::get('/admin/laporan-belum-potong', [App\Http\Controllers\RecycleController::class, 'laporanBelumPotong'])->name('admin.laporan-belum-potong');
-Route::get('/admin/laporan-tunggu-buffing', [App\Http\Controllers\RecycleController::class, 'laporanTungguBuffing'])->name('admin.laporan-tunggu-buffing');
-Route::get('/admin/laporan-siap-pouring', [App\Http\Controllers\RecycleController::class, 'laporanSiapPouring'])->name('admin.laporan-siap-pouring');
+Route::get('/recycle/laporan-belum-potong', [App\Http\Controllers\RecycleController::class, 'laporanBelumPotong'])->name('recycle.laporan-belum-potong');
+Route::get('/recycle/laporan-tunggu-buffing', [App\Http\Controllers\RecycleController::class, 'laporanTungguBuffing'])->name('recycle.laporan-tunggu-buffing');
+Route::get('/recycle/laporan-siap-pouring', [App\Http\Controllers\RecycleController::class, 'laporanSiapPouring'])->name('recycle.laporan-siap-pouring');
 
 
 

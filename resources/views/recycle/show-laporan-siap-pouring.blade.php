@@ -1,6 +1,10 @@
 @extends('layouts.template')
 @section('sidemenu')
-  @include('admin.sidemenu')
+    @if (Auth::user()->level == 'admin')
+        @include('admin.sidemenu')
+    @elseif (Auth::user()->level == 'supervisor')
+        @include('supervisor.sidemenu')
+    @endif
 @endsection
 @section('content')
 <div class="app-content content">

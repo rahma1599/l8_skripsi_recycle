@@ -37,11 +37,11 @@
 
     <li class=" active"><a href="#"><i class="la la-users"></i><span class="menu-title" data-i18n="nav.dash.main">Laporan</span></a>
         <ul class="menu-content">
-          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-belum-potong') }}" data-i18n="nav.dash.ecommerce">Belum Potong</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('recycle.laporan-belum-potong') }}" data-i18n="nav.dash.ecommerce">Belum Potong</a>
           </li>
-          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-tunggu-buffing') }}" data-i18n="nav.dash.ecommerce">Tunggu Buffing</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('recycle.laporan-tunggu-buffing') }}" data-i18n="nav.dash.ecommerce">Tunggu Buffing</a>
           </li>
-          <li class="menu-item"><a class="menu-item" href="{{ route('admin.laporan-siap-pouring') }}" data-i18n="nav.dash.ecommerce">Siap Pouring</a>
+          <li class="menu-item"><a class="menu-item" href="{{ route('recycle.laporan-siap-pouring') }}" data-i18n="nav.dash.ecommerce">Siap Pouring</a>
           </li>
         </ul>
     </li>

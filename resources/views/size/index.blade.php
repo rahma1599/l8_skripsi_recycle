@@ -30,24 +30,24 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     <div class="float-left">
-                      <a class="btn btn-success" href="{{ route('barang.create') }}">Add Barang</a>
+                      <a class="btn btn-success" href="{{ route('size.create') }}">Add Size</a>
                   </div>
                       <table class="table table-striped table-bordered dataex-html5-export-print">
                         <thead>
                           <tr>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
+                            <th>Id</th>
+                            <th>Nama Size</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($vbarang as $data )
+                          @foreach ($size as $data )
                             <tr>
-                              <td>{{ $data->id_barang }}</td>
-                              <td>{{ $data->style }}</td>
+                              <td>{{ $data->id }}</td>
+                              <td>{{ $data->size }}</td>
                               <td class="text-center">
-                                <form action="{{ route('barang.destroy',$data->id_barang) }}" method="POST">
-                                    <a class="btn btn-primary btn-sm" href="{{ route('barang.edit',$data->id) }}"><i class="la la-edit"></i></a>
+                                <form action="{{ route('size.destroy',$data->id) }}" method="POST">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('size.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
                                     {{-- @method('DELETE') --}}
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
