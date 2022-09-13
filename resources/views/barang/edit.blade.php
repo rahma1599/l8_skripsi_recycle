@@ -31,18 +31,13 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="projectinput1">Id Barang</label>
-                                    <input type="text" id="id_barang" class="form-control" placeholder="ID Barang" name="id_barang" value="{{ $barang->id_barang }}" readonly>
+                                    <input type="text" id="id_barang" class="form-control" placeholder="ID Barang" name="id_barang" value="{{ $barang->id_barang }}">
                                   </div>
                                 </div>
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="projectinput2">Barang</label>
-                                    <select id="style" name="style" class="form-control">
-                                        <option value="{{ $barang->style }}">{{ $barang->style }}</option>
-                                        @foreach($style as $data)
-                                        <option value="{{$data->style}}">{{$data->style}}</option>
-                                        @endforeach
-                                        </select>
+                                    <input type="text" id="style" class="form-control" placeholder="Barang" name="style" value="{{ $barang->style }}">
                                   </div>
                                 </div>
                               </div>

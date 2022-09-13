@@ -62,22 +62,22 @@ class PenggunaController extends Controller
      */
     public function store(Request $request){
         $request->validate([
-            'nrp' => 'required',
+            'nik' => 'required',
             'name' => 'required',
             'email' => 'required',
-            // 'level' => 'required'
+            // 'password' => 'required'
         ]);
         User::create([
-            'nrp' => $request['nrp'],
+            'nik' => $request['nik'],
             'name' => $request['name'],
             'email' => $request['email'],
             'level' => $request['level'],
             'status' => 'enabled',
             // 'password' => bcrypt($request['password'])
-            'password' => Hash::make($request['password'])
+            'password' => Hash::make($request['nik'].'12345')
         ]);
         //Alert::warning('Tambah pengguna berhasil !');
-        return redirect()->route('/admin/dashboard');
+        return redirect()->route('admin.dashboard');
     }
 
     /**

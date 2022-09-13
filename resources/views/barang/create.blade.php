@@ -37,11 +37,12 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label for="projectinput1">Barang</label>
-                                <select id="style" name="style" class="form-control">
+                              <input type="text" id="style" class="form-control" placeholder="Barang" name="style">
+                                {{-- <select id="style" name="style" class="form-control">
                                 @foreach($style as $data)
                                 <option value="{{$data->style}}">{{$data->style}}</option>
                                 @endforeach
-                                </select>
+                                </select> --}}
                             </div>
                           </div>
                         </div>

@@ -24,8 +24,8 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                    <form method="POST" action="{{ route('pengguna.create') }}" class="form" novalidate>@csrf
-                        @method('PUT')
+                    <form method="POST" action="{{ route('pengguna.store') }}" class="form" novalidate>@csrf
+                        {{-- @method('PUT') --}}
                       <div class="form-body">
                         <div class="row">
                           <div class="col-md-6">
