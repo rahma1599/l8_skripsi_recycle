@@ -31,11 +31,6 @@ Route::get('/home', function () {
 
 Auth::routes();
 
-// Route::get('/admin/laporan', [App\Http\Controllers\LaporanController::class, 'showLaporanAll'])->name('admin.laporan_all');
-// Route::get('/admin/laporan_recycle_b', [App\Http\Controllers\LaporanController::class, 'showLapRecycleB'])->name('admin.laporan_recycle_b');
-// Route::get('/admin/laporan_recycle_f', [App\Http\Controllers\LaporanController::class, 'showLapRecycleF'])->name('admin.laporan_recycle_f');
-// Route::get('/admin/laporan_recycle_s', [App\Http\Controllers\LaporanController::class, 'showLapRecycleS'])->name('admin.laporan_recycle_s');
-
 // Admin
 Route::get('/admin/{pengguna}/show', [App\Http\Controllers\PenggunaController::class, 'show'])->name('admin.show');
 Route::get('/admin/dashboard', [App\Http\Controllers\PenggunaController::class, 'dashboard'])->name('admin.dashboard');
