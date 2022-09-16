@@ -49,7 +49,7 @@
                                 <form action="{{ route('size.destroy',$data->id) }}" method="POST">
                                     <a class="btn btn-primary btn-sm" href="{{ route('size.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
-                                    {{-- @method('DELETE') --}}
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
                                 </form>
                             </td>

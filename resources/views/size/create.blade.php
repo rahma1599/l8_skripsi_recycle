@@ -25,7 +25,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                    <form method="POST" action="{{ route('barang.store') }}" class="form" novalidate enctype="multipart/form-data">@csrf
+                    <form method="POST" action="{{ route('size.store') }}" class="form" novalidate enctype="multipart/form-data">@csrf
                       <div class="form-body">
                           <div class="col-md-6">
                             <div class="form-group">

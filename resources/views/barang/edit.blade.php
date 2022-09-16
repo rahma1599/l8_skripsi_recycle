@@ -25,8 +25,7 @@
                   <div class="card-body">
                     <div class="card-text">
                         <form method="POST" action="{{ route('barang.update', $barang->id) }}" class="form" novalidate>@csrf @method('PUT')
-
-                                <div class="form-body">
+                            <div class="form-body">
                               <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group">
@@ -41,13 +40,14 @@
                                   </div>
                                 </div>
                               </div>
-                            <div class="form-actions right">
-                              <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
-                              <button type="submit" class="btn btn-primary btn-min-width">
-                                Update
-                              </button>
+                                <div class="form-actions right">
+                                <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
+                                <button type="submit" class="btn btn-primary btn-min-width">
+                                    Update
+                                </button>
+                                </div>
                             </div>
-                          </form>
+                        </form>
                   </div>
                 </div>
               </div>

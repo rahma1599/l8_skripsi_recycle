@@ -11,7 +11,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="basic-layout-form">Form Edit Barang</h4>
+                  <h4 class="card-title" id="basic-layout-form">Form Edit Size</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                   <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -24,33 +24,18 @@
                 <div class="card-content collapse show">
                   <div class="card-body">
                     <div class="card-text">
-                        <form method="POST" action="{{ route('barang.update', $barang->id) }}" class="form" novalidate>@csrf @method('PUT')
-
-                                <div class="form-body">
-                              <div class="row">
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="projectinput1">Id Barang</label>
-                                    <input type="text" id="id_barang" class="form-control" placeholder="ID Barang" name="id_barang" value="{{ $barang->id_barang }}" readonly>
-                                  </div>
+                        <form method="POST" action="{{ route('size.update',$size->id) }}" class="form" novalidate>@csrf @method('PUT')
+                            <div class="form-body">
+                                <div class="form-group">
+                                        <label for="projectinput1">Size</label>
+                                        <input type="text" id="size" class="form-control" placeholder="Size" name="size" value="{{ $size->size }}">
+                                    </div>
+                                <div class="form-actions right">
+                                <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
+                                <button type="submit" class="btn btn-primary btn-min-width">
+                                    Update
+                                </button>
                                 </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                    <label for="projectinput2">Barang</label>
-                                    <select id="style" name="style" class="form-control">
-                                        <option value="{{ $barang->style }}">{{ $barang->style }}</option>
-                                        @foreach($style as $data)
-                                        <option value="{{$data->style}}">{{$data->style}}</option>
-                                        @endforeach
-                                        </select>
-                                  </div>
-                                </div>
-                              </div>
-                            <div class="form-actions right">
-                              <a href="{{ URL::previous() }}" class="btn btn-warning btn-min-width">Back</a>
-                              <button type="submit" class="btn btn-primary btn-min-width">
-                                Update
-                              </button>
                             </div>
                           </form>
                   </div>

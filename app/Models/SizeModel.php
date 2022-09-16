@@ -10,6 +10,7 @@ class SizeModel extends Model
     use HasFactory;
     protected $table = 'tbl_m_size';
     protected $primarykey = 'id';
+    public $timestamps = false;
 
     protected $fillable= [
         'size',

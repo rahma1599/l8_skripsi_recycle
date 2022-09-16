@@ -51,10 +51,10 @@ class SizeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SizeModel  $sizeModel
+     * @param  \App\Models\SizeModel  $size
      * @return \Illuminate\Http\Response
      */
-    public function show(SizeModel $sizeModel)
+    public function show(SizeModel $size)
     {
         //
     }
@@ -62,30 +62,30 @@ class SizeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SizeModel  $sizeModel
+     * @param  \App\Models\SizeModel  $size
      * @return \Illuminate\Http\Response
      */
-    public function edit(SizeModel $sizeModel)
+    public function edit(SizeModel $size)
     {
-        return view('size.edit');
+        return view('size.edit',compact('size'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SizeModel  $sizeModel
+     * @param  \App\Models\SizeModel  $size
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SizeModel $sizeModel)
+    public function update(Request $request, SizeModel $size)
     {
         $request->validate([
             'size' => 'required',
         ]);
 
         //dd($request['style']);
-        $sizeModel->update($request->all());
-         SizeModel::where('id',$request['id'])->update([
+        $size->update($request->all());
+        SizeModel::where('id',$request['id'])->update([
             // 'id_barang' => $request['id_barang'],
             'size' => $request['size'],
         ]);
@@ -95,12 +95,12 @@ class SizeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SizeModel  $sizeModel
+     * @param  \App\Models\SizeModel  $size
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SizeModel $sizeModel)
+    public function destroy(SizeModel $size)
     {
-        $sizeModel->delete();
+        $size->delete();
         return redirect()->route('size.index')->with('Succes','Data Berhasil di Hapus');
     }
 }
