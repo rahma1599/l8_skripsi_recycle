@@ -38,7 +38,14 @@ class SizeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'size' => 'required',
+        ]);
+
+            SizeModel::create([
+                'size' => $request['size'],
+            ]);
+            return redirect()->route('size.index');
     }
 
     /**
@@ -60,7 +67,7 @@ class SizeController extends Controller
      */
     public function edit(SizeModel $sizeModel)
     {
-        //
+        return view('size.edit');
     }
 
     /**
@@ -72,7 +79,17 @@ class SizeController extends Controller
      */
     public function update(Request $request, SizeModel $sizeModel)
     {
-        //
+        $request->validate([
+            'size' => 'required',
+        ]);
+
+        //dd($request['style']);
+        $sizeModel->update($request->all());
+         SizeModel::where('id',$request['id'])->update([
+            // 'id_barang' => $request['id_barang'],
+            'size' => $request['size'],
+        ]);
+        return redirect()->route('size.index')->with('Succes','Data Berhasil di Update');
     }
 
     /**
@@ -83,6 +100,7 @@ class SizeController extends Controller
      */
     public function destroy(SizeModel $sizeModel)
     {
-        //
+        $sizeModel->delete();
+        return redirect()->route('size.index')->with('Succes','Data Berhasil di Hapus');
     }
 }

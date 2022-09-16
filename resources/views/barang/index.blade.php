@@ -46,10 +46,10 @@
                               <td>{{ $data->id_barang }}</td>
                               <td>{{ $data->style }}</td>
                               <td class="text-center">
-                                <form action="{{ route('barang.destroy',$data->id_barang) }}" method="POST">
+                                <form action="{{ route('barang.destroy',$data->id) }}" method="POST">
                                     <a class="btn btn-primary btn-sm" href="{{ route('barang.edit',$data->id) }}"><i class="la la-edit"></i></a>
                                     @csrf
-                                    {{-- @method('DELETE') --}}
+                                    @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="la la-trash"></i></button>
                                 </form>
                             </td>
