@@ -86,9 +86,15 @@
                             <div class="form-group">
                               <label for="projectinput3">Shift/Group</label>
                               <select id="shift_group" name="shift_group" class="form-control">
+                                <option value="1/A" default>1/A</option>
+                                <option value="1/B">1/B</option>
                                 <option value="1/C">1/C</option>
+                                <option value="2/A">2/B</option>
                                 <option value="2/B">2/B</option>
+                                <option value="2/C">2/C</option>
                                 <option value="3/A">3/A</option>
+                                <option value="3/B">3/B</option>
+                                <option value="3/C">3/C</option>
                                 </select>
                             </div>
                           </div>

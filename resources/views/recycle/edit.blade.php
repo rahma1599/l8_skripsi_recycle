@@ -73,7 +73,18 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label for="projectinput3">Shift/Group</label>
-                                    <input type="text" id="shift_group" class="form-control" placeholder="Shift Group" name="shift_group" value="{{ $data_recycle->shift_group }}">
+                                    <select id="shift_group" name="shift_group" class="form-control">
+                                        <option value="{{ $data_recycle->shift_group }}" default>{{ $data_recycle->shift_group }}</option>
+                                        <option value="1/A">1/A</option>
+                                        <option value="1/B">1/B</option>
+                                        <option value="1/C">1/C</option>
+                                        <option value="2/A">2/B</option>
+                                        <option value="2/B">2/B</option>
+                                        <option value="2/C">2/C</option>
+                                        <option value="3/A">3/A</option>
+                                        <option value="3/B">3/B</option>
+                                        <option value="3/C">3/C</option>
+                                        </select>
                                   </div>
                                 </div>
                                 <div class="col-md-6">
