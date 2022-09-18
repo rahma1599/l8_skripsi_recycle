@@ -59,6 +59,12 @@ Route::get('/recycle/laporan-belum-potong', [App\Http\Controllers\RecycleControl
 Route::get('/recycle/laporan-tunggu-buffing', [App\Http\Controllers\RecycleController::class, 'laporanTungguBuffing'])->name('recycle.laporan-tunggu-buffing');
 Route::get('/recycle/laporan-siap-pouring', [App\Http\Controllers\RecycleController::class, 'laporanSiapPouring'])->name('recycle.laporan-siap-pouring');
 
+//laporan
+Route::get('/laporan/laporan-belum-potong', [App\Http\Controllers\LaporanController::class, 'laporanBelumPotong'])->name('laporan.belum-potong');
+Route::get('/laporan/laporan-pinjaman', [App\Http\Controllers\LaporanController::class, 'laporanTungguBuffing'])->name('laporan.tunggu-buffing');
+Route::get('/laporan/laporan-simpanan', [App\Http\Controllers\LaporanController::class, 'laporanSiapPouring'])->name('laporan.siap-pouring');
+// Route::get('/laporan/tampil-laporan', [App\Http\Controllers\LaporanController::class, 'showLaporan'])->name('laporan.tampil-laporan');
+Route::post('/laporan/tampil-laporan', [App\Http\Controllers\LaporanController::class, 'showLaporan'])->name('laporan.tampil-laporan');
 
 
 

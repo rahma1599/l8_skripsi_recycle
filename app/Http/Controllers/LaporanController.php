@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LaporanModel;
+use App\Models\RecycleModel;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -15,7 +16,7 @@ class LaporanController extends Controller
     public function index()
     {
         $laporan = LaporanModel::all();
-        return view('admin.laporan',['vlaporan' => $laporan ]);  
+        return view('admin.laporan',['vlaporan' => $laporan ]);
     }
 
     /**
@@ -26,29 +27,48 @@ class LaporanController extends Controller
     public function showLaporanAll()
     {
         $laporan = LaporanModel::all();
-        return view('admin.laporan',['vlaporan' => $laporan ]);  
+        return view('admin.laporan',['vlaporan' => $laporan ]);
 
     }
 
-    public function showLapRecycleB()
+    public function laporanBelumPotong()
     {
-        $laporan = LaporanModel::all();
-        return view('admin.laporan',['vlaporan' => $laporan ]);  
+        return view('laporan.show-laporan-belum-potong');
 
     }
 
-    public function showLapRecycleF()
+    public function laporanTungguBuffing()
     {
-        $laporan = LaporanModel::all();
-        return view('admin.laporan',['vlaporan' => $laporan ]);  
+        return view('laporan.show-laporan-tunggu-buffing');
 
     }
 
-    public function showLapRecycleS()
+    public function laporanSiapPouring()
     {
-        $laporan = LaporanModel::all();
-        return view('admin.laporan',['vlaporan' => $laporan ]);  
+        return view('laporan.show-laporan-siap-pouring');
 
+    }
+
+    public function showLaporan(Request $request){
+        $dari_periode = date('Y-m-d',strtotime($request['dari_tanggal']));
+        $sd_periode = date('Y-m-d',strtotime($request['sd_tanggal']));
+        $jenis = $request['jenis_laporan'];
+        //$parameter_periode = [''];
+
+        if ($jenis == 'belum-potong') {
+            $jenis_laporan = $jenis;
+            // echo $jenis_laporan;
+            $isi_laporan = RecycleModel::where([['tanggal','>=', $dari_periode],['tanggal','<=', $sd_periode]])->get();
+        }elseif($jenis == 'tunggu-buffing'){
+            $jenis_laporan = $jenis;
+            // echo $jenis_laporan;
+            $isi_laporan = RecycleModel::where([['tanggal','>=', $dari_periode],['tanggal','<=', $sd_periode]])->get();
+        }elseif($jenis == 'siap-pouring'){
+            $jenis_laporan = $jenis;
+            $isi_laporan = RecycleModel::where([['tanggal','>=', $dari_periode],['tanggal','<=', $sd_periode]])->get();
+            // echo $jenis_laporan;
+        }
+        return view('laporan.laporan',compact('isi_laporan','jenis_laporan','dari_periode','sd_periode'));
     }
 
     public function create()
@@ -149,7 +169,7 @@ class LaporanController extends Controller
             'jumlah' => $request['jumlah'],
             'status' => $request['status'],
             ]);
-        return redirect()->route('admin.index'); 
+        return redirect()->route('admin.index');
     }
 
     /**
